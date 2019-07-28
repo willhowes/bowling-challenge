@@ -14,14 +14,22 @@ describe ('game', function(){
   describe('.score', function(){
     it('returns 0 after 20 times 0 rolls', function() {
       rollMany(20, 0)
-      expect(game.score).toEqual(0)
+      expect(game.score()).toEqual(0)
     });
 
     it('returns 20 after 20 times 1 rolls', function() {
       rollMany(20, 1)
-      expect(game.score).toEqual(20)
+      expect(game.score()).toEqual(20)
     });
   });
+
+    xit('returns score of 16 after a 5,5,3 and 17 0s game', function() {
+      game.roll(5)
+      game.roll(5)
+      game.roll(3)
+      rollMany(17,0)
+      expect(game.score()).toEqual(16)
+    })
 
   var rollMany = function(rolls, pins) {
     var i;
