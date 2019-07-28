@@ -23,7 +23,7 @@ describe ('game', function(){
     });
   });
 
-    xit('returns score of 16 after a 5,5,3 and 17 0s game', function() {
+    it('returns score of 16 after a 5,5,3 and 17 0s game', function() {
       game.roll(5)
       game.roll(5)
       game.roll(3)
