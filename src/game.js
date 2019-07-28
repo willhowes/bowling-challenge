@@ -8,7 +8,6 @@ function Game() {
 
 };
 
-
 Game.prototype.roll = function (pins) {
   this._rolls.push(pins)
 };
@@ -33,25 +32,20 @@ Game.prototype.score = function () {
 
 Game.prototype.isSpare = function (frameIndex) {
   return this._rolls[frameIndex] + this._rolls[frameIndex + 1] === 10;
-
 };
 
 Game.prototype.isStrike = function (frameIndex) {
   return this._rolls[frameIndex] === 10;
-
 };
 
 Game.prototype.sumOfFrame = function (frameIndex) {
   return this._rolls[frameIndex] + this._rolls[frameIndex + 1];
-
 };
 
 Game.prototype.spareBonus = function (frameIndex) {
   return this._rolls[frameIndex + 2];
-
 };
 
 Game.prototype.strikeBonus = function (frameIndex) {
   return this._rolls[frameIndex + 1] + this._rolls[frameIndex + 2]
-
 };
