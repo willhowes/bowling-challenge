@@ -23,12 +23,19 @@ describe ('game', function(){
     });
   });
 
-    it('returns score of 16 after a 5,5,3 and 17 0s game', function() {
-      game.roll(5)
-      game.roll(5)
+    it('returns score of 16 after a 5,5,3 and 17x0s', function() {
+      rollSpare();
       game.roll(3)
       rollMany(17,0)
       expect(game.score()).toEqual(16)
+    })
+
+    it('returns score of 24 after 10,3,4 and 16x0s', function(){
+      rollStrike();
+      game.roll(3)
+      game.roll(4)
+      rollMany(16,0)
+      expect(game.score()).toEqual(24)
     })
 
   var rollMany = function(rolls, pins) {
@@ -36,6 +43,15 @@ describe ('game', function(){
     for (i = 0; i < rolls; i++) {
       game.roll(pins);
     };
+  }
+
+  var rollSpare = function() {
+    game.roll(5);
+    game.roll(5);
+  };
+
+  var rollStrike = function() {
+    game.roll(10);
   }
 
 });
