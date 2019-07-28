@@ -3,25 +3,30 @@
 describe ('game', function(){
 
   var game;
-  var frame;
   beforeEach (function(){
     game = new Game;
-    frame = jasmine.createSpy('frame');
-
   });
 
-  it ('game set up correct', function(){
-    expect(game._frames).toEqual([]);
-    expect(game.scorecard).toEqual([]);
-    expect(game.frameRunningTotals).toEqual([]);
-    expect(game.runningTotal).toEqual(0);
-
+  it('is is an instance of game constructor function', function(){
+      expect(game).toEqual(jasmine.any(Game));
   });
 
-  describe ('.receiveFrame', function(){
-    it ('receives a frame object and adds to .frames', function() {
-      game.receiveFrame(frame)
-      expect(game._frames).toEqual([frame])
-    })
-  })
+  describe('.score', function(){
+    it('returns 0 after 20 times 0 rolls', function() {
+      var i;
+      for (i = 0; i < 20; i++) {
+        game.roll(0);
+      };
+      expect(game.score).toEqual(0)
+    });
+
+    it('returns 20 after 20 times 1 rolls', function() {
+      var i;
+      for (i = 0; i < 20; i++) {
+        game.roll(1);
+      };
+      expect(game.score).toEqual(20)
+    });
+  });
+
 });

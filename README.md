@@ -1,9 +1,10 @@
 # Bowling Challenge
 
 ## Notes to myself
-1. Look into stubbing out (or creating a spy maybe) the ```._game``` private state where tested?
 
 This is my attempt at the [Makers Academy Week 5 Bowling Challenge](https://github.com/makersacademy/bowling-challenge)
+
+I use the walkthrough from [this website](http://www.butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
 
 ## Approach
 
@@ -15,17 +16,10 @@ I built the bowling scorer in Javascript using TDD.
 ```
 Game:
   * Attributes:
-    * this.frames = [[Frame object], [Frame object], etc..]
-    * this.scorecard = e.g. [[X], [7, /], [0, 0], [5, 2], etc]
-    * this.frame_running_totals = e.g. [20, 35, 45, etc]
-    * this.running_total = 0
 
   * Methods:
-    * get_scores (in order to display on web page)
-    * update_scores (consisting of three functions...)
-    1. update_scorecard (adds the latest roll to the scorecard)
-    2. update_frame_running_totals (loops through the frame objects to check if .is_complete, if so, add frame score to frame_running_totals)
-    3. update_running_total (loops through frame objects, if is.complete add to the running_total)
+    * .roll(pins)
+    * .score() - iterates through the frames to calculate total.
 
 Frame:
   * Attributes:
