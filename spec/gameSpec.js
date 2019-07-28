@@ -38,6 +38,20 @@ describe ('game', function(){
       expect(game.score()).toEqual(24)
     })
 
+    it('returns 300 if all strikes', function() {
+      rollMany(12,10)
+      expect(game.score()).toEqual(300)
+    })
+
+    it('returns 20 with game of all 0s and a spare and strike in frame 10', function() {
+      rollMany(18,0)
+      game.roll(5)
+      game.roll(5)
+      game.roll(10)
+      expect(game.score()).toEqual(20)
+
+    })
+
   var rollMany = function(rolls, pins) {
     var i;
     for (i = 0; i < rolls; i++) {
