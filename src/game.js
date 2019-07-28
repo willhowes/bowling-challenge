@@ -16,8 +16,6 @@ Game.prototype.score = function () {
   var frameIndex = 0;
   var frame;
   for (frame = 0; frame < 10; frame++) {
-    // console.log("FRAME NUMBER " + frame)
-    // console.log(this._rolls[frameIndex])
     if (this.isStrike(frameIndex)) {
       this._score += 10 + this.strikeBonus(frameIndex);
       frameIndex += 1;
