@@ -13,20 +13,21 @@ describe ('game', function(){
 
   describe('.score', function(){
     it('returns 0 after 20 times 0 rolls', function() {
-      var i;
-      for (i = 0; i < 20; i++) {
-        game.roll(0);
-      };
+      rollMany(20, 0)
       expect(game.score).toEqual(0)
     });
 
     it('returns 20 after 20 times 1 rolls', function() {
-      var i;
-      for (i = 0; i < 20; i++) {
-        game.roll(1);
-      };
+      rollMany(20, 1)
       expect(game.score).toEqual(20)
     });
   });
+
+  var rollMany = function(rolls, pins) {
+    var i;
+    for (i = 0; i < rolls; i++) {
+      game.roll(pins);
+    };
+  }
 
 });
