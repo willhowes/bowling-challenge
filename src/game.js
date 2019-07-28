@@ -15,16 +15,21 @@ Game.prototype.roll = function (pins) {
   console.log(this._rolls)
 };
 Game.prototype.score = function () {
-  var i = 0;
+  var frameIndex = 0;
   var frame;
   for (frame = 0; frame < 10; frame++) {
-    if (this._rolls[i] + this._rolls[i + 1] === 10) {
-      this._score += 10 + this._rolls[i + 2]
-      i += 2;
+    if (this.isSpare(frameIndex)) {
+      this._score += 10 + this._rolls[frameIndex + 2]
+      frameIndex += 2;
     } else {
-      this._score += this._rolls[i] + this._rolls[i +1];
-      i += 2;
+      this._score += this._rolls[frameIndex] + this._rolls[frameIndex +1];
+      frameIndex += 2;
     }
   };
   return this._score
+};
+
+Game.prototype.isSpare = function (frameIndex) {
+  return this._rolls[frameIndex] + this._rolls[frameIndex + 1] === 10;
+
 };
